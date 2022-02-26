@@ -36,5 +36,5 @@ func RepoDestroyTodo(id int) error {
 			return nil
 		}
 	}
-	return fmt.Errorf("Could not find Todo with id of %d to delete", id)
+	return fmt.Errorf("could not find Todo with id of %d to delete", id)
 }
