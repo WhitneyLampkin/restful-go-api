@@ -31,6 +31,7 @@ func TodoShow(w http.ResponseWriter, r *http.Request) {
 
 func TodoCreate(w http.ResponseWriter, r *http.Request) {
 	var todo Todo
+	// io.LimitReader protects against malicious attacks
 	body, err := ioutil.ReadAll(io.LimitReader(r.Body, 1048576))
 	if err != nil {
 		panic(err)
