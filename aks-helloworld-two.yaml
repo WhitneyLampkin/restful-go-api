@@ -1,33 +1,33 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: restful-go-api  
+  name: aks-helloworld-two  
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: restful-go-api
+      app: aks-helloworld-two
   template:
     metadata:
       labels:
-        app: restful-go-api
+        app: aks-helloworld-two
     spec:
       containers:
-      - name: restful-go-api
+      - name: aks-helloworld-two
         image: mcr.microsoft.com/azuredocs/aks-helloworld:v1
         ports:
         - containerPort: 80
         env:
         - name: TITLE
-          value: "Welcome to Whitney's Todos App"
+          value: "AKS Ingress Demo"
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: restful-go-api  
+  name: aks-helloworld-two  
 spec:
   type: ClusterIP
   ports:
   - port: 80
   selector:
-    app: restful-go-api
+    app: aks-helloworld-two
